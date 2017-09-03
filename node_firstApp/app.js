@@ -3,6 +3,12 @@ console.log("Staring Application");
 const os = require('os');
 const fs = require('fs');
 const note = require('./note.js');
+const _ = require('lodash');
+
+console.log(_.isString("garvit"));
+
+var array = _.uniq(['Garvit', 1 , 1, 1, 'Khamesra', 'Garvit']);
+console.log(array);
 
 var user = os.userInfo();
 
