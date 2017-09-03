@@ -1,4 +1,3 @@
-console.log("Staring Application");
 
 const fs = require('fs');
 const _ = require('lodash');
@@ -13,8 +12,16 @@ var command = process.argv[2];
 const argv = yargs.argv;
 
 if(command === 'add'){
-    console.log("Adding Node");
-    note.addNote(argv.title,argv.body);
+    var notes = note.addNote(argv.title,argv.body);
+    if(notes){
+        console.log("Node added successfully");
+        console.log(`Title : ${notes.title} `);
+        console.log("----");
+        console.log(`Body : ${notes.body} `);
+    }
+    else{
+        console.log("Unsuccessfull");
+    }
 }
 else if(command === 'list'){
     console.log("Listing Notes");
