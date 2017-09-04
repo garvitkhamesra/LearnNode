@@ -32,8 +32,13 @@ else if(command === 'read'){
     note.getNote(argv.title);
 }
 else if(command === 'remove'){
-    console.log("Removing Note");
-    note.remove(argv.title);
+    var flag = note.remove(argv.title);
+    if(flag){
+        console.log("Note is Removed");
+    }
+    else{
+        console.log("Sorry, Something went wrong");
+    }
 }
 else{
     console.log("Command not recognised");

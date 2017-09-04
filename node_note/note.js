@@ -33,14 +33,30 @@ var addNote = (title,body)=>{
     }
 
 };
+
 var getAll = ()=>{
 
 };
+
 var getNote = (title) => {
     console.log("Reading : ",title);
 };
+
 var remove = (title) => {
-    console.log("Removing : ",title);
+    var notes = fetchNotes();
+    var x = notes.length;
+    notes = notes.filter((note) => {
+        return note.title !== title;
+    });
+    var y = notes.length;
+    saveNotes(notes);
+    
+    if(y!==x){
+        return true;
+    }
+    else{
+        return false;
+    }
 };
 
 module.exports = {
