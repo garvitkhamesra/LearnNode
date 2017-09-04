@@ -15,9 +15,7 @@ if(command === 'add'){
     var notes = note.addNote(argv.title,argv.body);
     if(notes){
         console.log("Node added successfully");
-        console.log(`Title : ${notes.title} `);
-        console.log("----");
-        console.log(`Body : ${notes.body} `);
+        note.displayNotes(notes);   
     }
     else{
         console.log("Unsuccessfull");
@@ -28,8 +26,13 @@ else if(command === 'list'){
     note.getAll();
 }
 else if(command === 'read'){
-    console.log("Reading Note");
-    note.getNote(argv.title);
+    var notes = note.getNote(argv.title);
+    if(notes){
+        note.displayNotes(notes);           
+    }
+    else{
+        console.log("Note not Found");
+    }
 }
 else if(command === 'remove'){
     var flag = note.remove(argv.title);
