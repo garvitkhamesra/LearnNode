@@ -22,8 +22,11 @@ if(command === 'add'){
     }
 }
 else if(command === 'list'){
-    console.log("Listing Notes");
-    note.getAll();
+    var notes = note.getAll();
+    console.log(`Printing ${notes.length} note(s). `);
+    notes.forEach(function(notes) {
+        note.displayNotes(notes);
+    }, this);
 }
 else if(command === 'read'){
     var notes = note.getNote(argv.title);

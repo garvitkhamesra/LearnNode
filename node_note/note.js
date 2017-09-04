@@ -35,7 +35,8 @@ var addNote = (title,body)=>{
 };
 
 var getAll = ()=>{
-
+    var notes = fetchNotes();
+    return notes;
 };
 
 var getNote = (title) => {
@@ -62,6 +63,7 @@ var remove = (title) => {
 };
 
 var displayNotes = (notes) =>{
+    debugger;
     console.log(`Title : ${notes.title} `);
     console.log("----");
     console.log(`Body : ${notes.body} `);
