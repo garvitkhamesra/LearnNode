@@ -7,9 +7,33 @@ const note = require('./note.js');
 //To access the command line arguments
 //console.log(process.argv);
 
+const titleOptions = {
+    describe:"Add a note",
+    demand : true,
+    alias : 't'
+};
+const bodyOptions = {
+    describe:"Add notes body",
+    demand:true,
+    alias:'b'
+};
+
 var command = process.argv[2];
 //argv._[0]; same as process.argv[2] but using yargs
-const argv = yargs.argv;
+const argv = yargs
+    .command('add','Add a note',{
+        title : titleOptions,
+        body : bodyOptions
+    })
+    .command('list','List all Notes')
+    .command('read','Reading a Note',{
+        title:titleOptions
+    })
+    .command('remove',"Removing a Note",{
+        title:titleOptions
+    })
+    .help()
+    .argv;
 
 if(command === 'add'){
     var notes = note.addNote(argv.title,argv.body);
