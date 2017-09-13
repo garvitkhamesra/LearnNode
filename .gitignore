@@ -3,3 +3,4 @@ node_note/node_modules/*
 weather_app/node_modules/*
 weather_app/playground/*
 web_server/node_modules/*
+web_server/logs/*
